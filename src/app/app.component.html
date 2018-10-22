@@ -3,9 +3,15 @@
   <h1>
     Welcome to {{ title }}!
   </h1>
+
+  <a routerLink="faq">FAQ</a>
+
+  <router-outlet></router-outlet>
+
 <app-article-list [childArticleList]="masterArticleList" (clickSender)="editArticle($event)"></app-article-list>
 
 
 <app-edit-article [childSelectedArticle]="selectedArticle" (clickedDone)="finishedEditing()"></app-edit-article>
 
 <app-new-article (sendArticle)="addArticle($event)"></app-new-article>
+</div>

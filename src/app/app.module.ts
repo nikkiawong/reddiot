@@ -3,12 +3,14 @@ import { NgModule } from '@angular/core';
 import { FormsModule }  from '@angular/forms';
 import { StatusPipe } from './status.pipe';
 import { CategoryPipe } from './category.pipe';
+import { routing } from '../../app.routing';
 
 
 import { AppComponent } from './app.component';
 import { ArticleListComponent } from './article-list/article-list.component';
 import { EditArticleComponent } from './edit-article/edit-article.component';
 import { NewArticleComponent } from './new-article/new-article.component';
+import { FaqComponent } from './faq/faq.component';
 
 
 @NgModule({
@@ -18,11 +20,13 @@ import { NewArticleComponent } from './new-article/new-article.component';
     EditArticleComponent,
     NewArticleComponent,
     StatusPipe,
-    CategoryPipe
+    CategoryPipe,
+    FaqComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]
