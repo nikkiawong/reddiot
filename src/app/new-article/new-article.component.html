@@ -1,4 +1,5 @@
-<h1>New Article</h1>
+<form #newArticleForm>
+  <h1>New Article</h1>
   <label>Enter Article Title:</label>
   <input #newTitle>
   <label>Enter Article Content:</label>
@@ -7,5 +8,16 @@
   <input #newAuthor>
   <label>Enter An Image URL:</label>
   <input #newImage>
+  <div>
+   <label for="categories">Select a Category</label>
+   <select #newCategory>
+     <option>EarthPorn</option>
+     <option>History</option>
+     <option>WorldNews</option>
+     <option>Pics</option>
+     <option>Gaming</option>
+   </select>
+ </div>
   <br>
-  <button (click)="finishedEditing()">Done</button>
+  <button (click)="submitForm(newTitle.value, newContent.value, newAuthor.value, newImage.value, newCategory.value); newArticleForm.reset();">Done</button>
+</form>

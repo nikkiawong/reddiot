@@ -11,7 +11,18 @@ export class ArticleListComponent {
   @Input() childArticleList: Article[];
   @Output() clickSender = new EventEmitter();
 
+  filterByStatus: string = "publishedTasks";
+
   editButtonClicked(articleToEdit: Article) {
     this.clickSender.emit(articleToEdit);
   }
+
+  onChange(optionFromMenu) {
+    this.filterByStatus = optionFromMenu;
+  }
+
+  togglePublish(clickedArticle: Article, setStatus: boolean) {
+     clickedArticle.published = setStatus;
+   }
+
 }

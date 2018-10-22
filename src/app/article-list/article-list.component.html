@@ -1,10 +1,19 @@
-<div *ngFor="let article of childArticleList">
+<select (change)="onChange($event.target.value)">
+  <option value="allArticles">All Articles</option>
+  <option value="publishedArticles" selected="selected">Published Articles</option>
+  <option value="unpublishedArticles">Unpublished Articles</option>
+</select>
+
+<div *ngFor="let article of childArticleList | status:filterByStatus">
   <div class="article-info">
     <p>r/{{article.category}}</p>
-    <p>Posted by {{article.author}} {{article.date}}</p>
+    <p>Posted by {{article.author}}</p>
+    <p>{{article.date}}</p>
   </div>
   <h3>{{article.title}}</h3>
   <img src="{{article.image}}" alt="">
   <p>{{article.content}}</p>
+  <input *ngIf="article.published === true" type="checkbox" (click)="togglePublish(article, false)"/>
+  <input *ngIf="article.published === false" type="checkbox" checked (click)="togglePublish(article, true)"/>
   <button (click)="editButtonClicked(article)">Edit</button>
 </div>
