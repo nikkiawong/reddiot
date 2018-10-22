@@ -1,0 +1,13 @@
+<div *ngIf="childSelectedArticle">
+  <h3>{{childSelectedArticle.title}}</h3>
+  <p>Article Published? {{childSelectedArticle.published}}</p>
+  <h3>Edit Article</h3>
+  <label>Enter Article Content:</label>
+  <input [(ngModel)]="childSelectedArticle.content">
+  <label>Enter Your Username:</label>
+  <input [(ngModel)]="childSelectedArticle.author">
+  <label>Enter An Image URL:</label>
+  <input [(ngModel)]="childSelectedArticle.image">
+  <br>
+  <button (click)="finishedEditing()">Done</button>
+</div>

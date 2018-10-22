@@ -1,0 +1,10 @@
+<div *ngFor="let article of childArticleList">
+  <div class="article-info">
+    <p>r/{{article.category}}</p>
+    <p>Posted by {{article.author}} {{article.date}}</p>
+  </div>
+  <h3>{{article.title}}</h3>
+  <img src="{{article.image}}" alt="">
+  <p>{{article.content}}</p>
+  <button (click)="editButtonClicked(article)">Edit</button>
+</div>
