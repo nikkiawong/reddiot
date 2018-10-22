@@ -12,6 +12,7 @@ export class ArticleListComponent {
   @Output() clickSender = new EventEmitter();
 
   filterByStatus: string = "publishedTasks";
+  filterByCategory: string = "EarthPorn";
 
   editButtonClicked(articleToEdit: Article) {
     this.clickSender.emit(articleToEdit);
@@ -25,4 +26,13 @@ export class ArticleListComponent {
      clickedArticle.published = setStatus;
    }
 
+  onCategory(categoryFromMenu) {
+    this.filterByCategory = categoryFromMenu;
+  }
+
+  public show:boolean = false;
+
+  toggle() {
+    this.show = !this.show;
+  }
 }

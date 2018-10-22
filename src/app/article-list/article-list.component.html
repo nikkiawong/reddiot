@@ -1,19 +1,29 @@
 <select (change)="onChange($event.target.value)">
-  <option value="allArticles">All Articles</option>
-  <option value="publishedArticles" selected="selected">Published Articles</option>
+  <option value="allArticles" selected="selected">All Articles</option>
+  <option value="publishedArticles" >Published Articles</option>
   <option value="unpublishedArticles">Unpublished Articles</option>
 </select>
+<select (change)="onCategory($event.target.value)">
+  <option value="All" >All</option>
+  <option value="EarthPorn">EarthPorn</option>
+  <option value="History">History</option>
+  <option value="Gaming">Gaming</option>
+  <option value="WorldNews">WorldNews</option>
+  <option value="Pics">Pics</option>
+</select>
 
-<div *ngFor="let article of childArticleList | status:filterByStatus">
+<div *ngFor="let article of childArticleList | status:filterByStatus | category:filterByCategory">
   <div class="article-info">
     <p>r/{{article.category}}</p>
     <p>Posted by {{article.author}}</p>
     <p>{{article.date}}</p>
   </div>
-  <h3>{{article.title}}</h3>
-  <img src="{{article.image}}" alt="">
-  <p>{{article.content}}</p>
-  <input *ngIf="article.published === true" type="checkbox" (click)="togglePublish(article, false)"/>
-  <input *ngIf="article.published === false" type="checkbox" checked (click)="togglePublish(article, true)"/>
-  <button (click)="editButtonClicked(article)">Edit</button>
+  <h3 (click)="toggle()">{{article.title}}</h3>
+  <div *ngIf="show">
+    <img src="{{article.image}}" alt="">
+    <p>{{article.content}}</p>
+    <input *ngIf="article.published === true" type="checkbox" (click)="togglePublish(article, false)"/>
+    <input *ngIf="article.published === false" type="checkbox" checked (click)="togglePublish(article, true)"/>
+    <button (click)="editButtonClicked(article)">Edit</button>
+  </div>
 </div>
